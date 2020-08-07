@@ -4,10 +4,5 @@ title: About Me
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+I'm a data entusiast and programmer. Currently, I'm a machine learning researcher at UC San Francisco working on hospital acquired sepsis prediction models. 
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
-
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
