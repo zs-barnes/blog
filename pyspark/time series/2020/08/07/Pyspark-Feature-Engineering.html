@@ -3,36 +3,36 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>My Title | Zachary Barnes</title>
+<title>Time Series Features in PySpark | Zachary Barnes</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="My Title" />
+<meta property="og:title" content="Time Series Features in PySpark" />
 <meta name="author" content="Zachary Barnes" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Awesome summary" />
-<meta property="og:description" content="Awesome summary" />
-<link rel="canonical" href="https://zs-barnes.github.io/blog/fastpages/jupyter/2020/08/07/Pyspark-Feature-Engineering.html" />
-<meta property="og:url" content="https://zs-barnes.github.io/blog/fastpages/jupyter/2020/08/07/Pyspark-Feature-Engineering.html" />
+<meta name="description" content="Finally, how to get the median and slope for window features in Pyspark" />
+<meta property="og:description" content="Finally, how to get the median and slope for window features in Pyspark" />
+<link rel="canonical" href="https://zs-barnes.github.io/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html" />
+<meta property="og:url" content="https://zs-barnes.github.io/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html" />
 <meta property="og:site_name" content="Zachary Barnes" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-07T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Zachary Barnes"},"description":"Awesome summary","@type":"BlogPosting","headline":"My Title","dateModified":"2020-08-07T00:00:00-05:00","datePublished":"2020-08-07T00:00:00-05:00","url":"https://zs-barnes.github.io/blog/fastpages/jupyter/2020/08/07/Pyspark-Feature-Engineering.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://zs-barnes.github.io/blog/fastpages/jupyter/2020/08/07/Pyspark-Feature-Engineering.html"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Zachary Barnes"},"description":"Finally, how to get the median and slope for window features in Pyspark","@type":"BlogPosting","headline":"Time Series Features in PySpark","dateModified":"2020-08-07T00:00:00-05:00","datePublished":"2020-08-07T00:00:00-05:00","url":"https://zs-barnes.github.io/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://zs-barnes.github.io/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zs-barnes.github.io/blog/feed.xml" title="Zachary Barnes" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>My Title | Zachary Barnes</title>
+<title>Time Series Features in PySpark | Zachary Barnes</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="My Title" />
+<meta property="og:title" content="Time Series Features in PySpark" />
 <meta name="author" content="Zachary Barnes" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Awesome summary" />
-<meta property="og:description" content="Awesome summary" />
-<link rel="canonical" href="https://zs-barnes.github.io/blog/fastpages/jupyter/2020/08/07/Pyspark-Feature-Engineering.html" />
-<meta property="og:url" content="https://zs-barnes.github.io/blog/fastpages/jupyter/2020/08/07/Pyspark-Feature-Engineering.html" />
+<meta name="description" content="Finally, how to get the median and slope for window features in Pyspark" />
+<meta property="og:description" content="Finally, how to get the median and slope for window features in Pyspark" />
+<link rel="canonical" href="https://zs-barnes.github.io/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html" />
+<meta property="og:url" content="https://zs-barnes.github.io/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html" />
 <meta property="og:site_name" content="Zachary Barnes" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-07T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Zachary Barnes"},"description":"Awesome summary","@type":"BlogPosting","headline":"My Title","dateModified":"2020-08-07T00:00:00-05:00","datePublished":"2020-08-07T00:00:00-05:00","url":"https://zs-barnes.github.io/blog/fastpages/jupyter/2020/08/07/Pyspark-Feature-Engineering.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://zs-barnes.github.io/blog/fastpages/jupyter/2020/08/07/Pyspark-Feature-Engineering.html"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Zachary Barnes"},"description":"Finally, how to get the median and slope for window features in Pyspark","@type":"BlogPosting","headline":"Time Series Features in PySpark","dateModified":"2020-08-07T00:00:00-05:00","datePublished":"2020-08-07T00:00:00-05:00","url":"https://zs-barnes.github.io/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://zs-barnes.github.io/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -87,7 +87,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">My Title</h1><p class="page-description">Awesome summary</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-07T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Time Series Features in PySpark</h1><p class="page-description">Finally, how to get the median and slope for window features in Pyspark</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-07T00:00:00-05:00" itemprop="datePublished">
         Aug 7, 2020
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -95,17 +95,17 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
     
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
-        <a class="category-tags-link" href="/blog/categories/#fastpages">fastpages</a>
+        <a class="category-tags-link" href="/blog/categories/#Pyspark">Pyspark</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/blog/categories/#jupyter">jupyter</a>
+        <a class="category-tags-link" href="/blog/categories/#Time Series">Time Series</a>
         
       
       </p>
@@ -137,6 +137,8 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Implementation">Implementation </a></li>
+<li class="toc-entry toc-h2"><a href="#Real-Use-Case">Real Use Case </a></li>
 </ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
@@ -153,6 +155,14 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This post comes from a place of frustration in not being able to create simple time series features with window functions like the median or slope in Pyspark. This approach is by no means optimal, but it got the job done for purposes.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -175,6 +185,14 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To make our work more organized, we use pyspark's ML pipeline tool.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -193,6 +211,23 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our code all fits into one class, where we specify which feature to use, what size window, and what statistic we want to compute with each window.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Implementation">
+<a class="anchor" href="#Implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementation<a class="anchor-link" href="#Implementation"> </a>
+</h2>
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -263,6 +298,23 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Real-Use-Case">
+<a class="anchor" href="#Real-Use-Case" aria-hidden="true"><span class="octicon octicon-link"></span></a>Real Use Case<a class="anchor-link" href="#Real-Use-Case"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is the code I used in my research to identify which features (vital signs, lab values) to use, which window sizes (24, 48, and 72 hours) and what statistics were computed on each(min, max, mean, median, stddev, slope).</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -342,7 +394,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Warning: Not my best code up ahead..</p>
+<p>Finally, we fit our pipeline to the data.</p>
 
 </div>
 </div>
@@ -366,6 +418,14 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I'll be fleshing out this post when I have more time, but please feel free to send me questions/comments on anything related to this!</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
@@ -378,7 +438,7 @@ window.onload = wrap_img;
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/blog/fastpages/jupyter/2020/08/07/Pyspark-Feature-Engineering.html" hidden></a>
+</script><a class="u-url" href="/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
