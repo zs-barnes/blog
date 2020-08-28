@@ -13,10 +13,11 @@
 <link rel="canonical" href="https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html" />
 <meta property="og:url" content="https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html" />
 <meta property="og:site_name" content="Zachary Barnes" />
+<meta property="og:image" content="https://zs-barnes.github.io/blog/images/mtgp.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-20T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Zachary Barnes"},"description":"How to model a multiple vital signs with multi-task gaussian processes","@type":"BlogPosting","headline":"Multi-Task Gaussian Processes for Vital Sign Imputation","dateModified":"2020-08-20T00:00:00-05:00","datePublished":"2020-08-20T00:00:00-05:00","url":"https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Zachary Barnes"},"description":"How to model a multiple vital signs with multi-task gaussian processes","@type":"BlogPosting","headline":"Multi-Task Gaussian Processes for Vital Sign Imputation","dateModified":"2020-08-20T00:00:00-05:00","datePublished":"2020-08-20T00:00:00-05:00","image":"https://zs-barnes.github.io/blog/images/mtgp.png","url":"https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zs-barnes.github.io/blog/feed.xml" title="Zachary Barnes" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Multi-Task Gaussian Processes for Vital Sign Imputation | Zachary Barnes</title>
@@ -29,10 +30,11 @@
 <link rel="canonical" href="https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html" />
 <meta property="og:url" content="https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html" />
 <meta property="og:site_name" content="Zachary Barnes" />
+<meta property="og:image" content="https://zs-barnes.github.io/blog/images/mtgp.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-20T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Zachary Barnes"},"description":"How to model a multiple vital signs with multi-task gaussian processes","@type":"BlogPosting","headline":"Multi-Task Gaussian Processes for Vital Sign Imputation","dateModified":"2020-08-20T00:00:00-05:00","datePublished":"2020-08-20T00:00:00-05:00","url":"https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Zachary Barnes"},"description":"How to model a multiple vital signs with multi-task gaussian processes","@type":"BlogPosting","headline":"Multi-Task Gaussian Processes for Vital Sign Imputation","dateModified":"2020-08-20T00:00:00-05:00","datePublished":"2020-08-20T00:00:00-05:00","image":"https://zs-barnes.github.io/blog/images/mtgp.png","url":"https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://zs-barnes.github.io/blog/gaussian%20processes/2020/08/20/MTGP.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -170,7 +172,7 @@ This is an alternative to using a single gaussian process model to impute each f
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We'll be using public data from the Physionet 2019 competition on the early prediction of sepsis. Data can be found here: <a href="https://physionet.org/content/challenge-2019/1.0.0/">https://physionet.org/content/challenge-2019/1.0.0/</a></p>
+<p>We'll be using public data from the Physionet 2019 competition on the early prediction of sepsis. Data can be found <a href="https://physionet.org/content/challenge-2019/1.0.0/">here</a></p>
 
 </div>
 </div>
@@ -187,9 +189,9 @@ This is an alternative to using a single gaussian process model to impute each f
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The original <a href="https://papers.nips.cc/paper/3189-multi-task-gaussian-process-prediction.pdf">paper</a> for Multi-task Gaussian processes.  \
-This application for using MTGP for vital signs is based on the approach from this <a href="http://proceedings.mlr.press/v70/futoma17a/futoma17a.pdf">paper</a>\
-Most of the GPyTorch code comes from <a href="https://docs.gpytorch.ai/en/latest/examples/03_Multitask_Exact_GPs/Hadamard_Multitask_GP_Regression.html">this</a> example.</p>
+<p>The original <a href="https://papers.nips.cc/paper/3189-multi-task-gaussian-process-prediction.pdf">paper</a> for Multi-task Gaussian processes.</p>
+<p>This application for using MTGP for vital signs is based on the approach from this <a href="http://proceedings.mlr.press/v70/futoma17a/futoma17a.pdf">paper</a></p>
+<p>Most of the GPyTorch code comes from <a href="https://docs.gpytorch.ai/en/latest/examples/03_Multitask_Exact_GPs/Hadamard_Multitask_GP_Regression.html">this</a> example.</p>
 
 </div>
 </div>
@@ -351,10 +353,8 @@ Most of the GPyTorch code comes from <a href="https://docs.gpytorch.ai/en/latest
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Our final covariance kernal is a multiplication of these two covariance kernals:
-
-$$ k([x,i], [x', j]) = k_{inputs}(x, x') * k_{tasks}(i,j) $$
-
-In our code: <code>covar = covar_x.mul(covar_i)</code></p>
+$k([x,i], [x', j]) = k_{inputs}(x, x') * k_{tasks}(i,j)$</p>
+<p>In our code: <code>covar = covar_x.mul(covar_i)</code></p>
 
 </div>
 </div>
@@ -410,8 +410,8 @@ In our code: <code>covar = covar_x.mul(covar_i)</code></p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I'll explain what to contitutes full_train_x, full_train_i, and full_train_y 
-in our instatiation of our Multitask model:\
-<code>MultitaskGPModel((full_train_x, full_train_i), full_train_y, likelihood)</code></p>
+in our instatiation of our Multitask model:</p>
+<p><code>MultitaskGPModel((full_train_x, full_train_i), full_train_y, likelihood)</code></p>
 
 </div>
 </div>
@@ -624,8 +624,8 @@ in our instatiation of our Multitask model:\
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For <code>full_train_i</code>, this is the concatenated tensor of <em>indicies to specify which value belongs to which feature</em>, as if we had given an ordinal label to each feature.\
-In this example, we have assigned 0 to the temperature feature, and there is 9 non-null temperature values in our observation. We assign 1 to DBP, 2 to Resp, etc.</p>
+<p>For <code>full_train_i</code>, this is the concatenated tensor of <em>indicies to specify which value belongs to which feature</em>, as if we had given an ordinal label to each feature.</p>
+<p>In this example, we have assigned 0 to the temperature feature, and there is 9 non-null temperature values in our observation. We assign 1 to DBP, 2 to Resp, etc.</p>
 
 </div>
 </div>
@@ -1216,7 +1216,7 @@ In this example, we have assigned 0 to the temperature feature, and there is 9 n
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can parallize our fucntion across multiple cores. My current machine has 8 cores:</p>
+<p>We can parallelize our fucntion across multiple cores. My current machine has 8 cores:</p>
 
 </div>
 </div>
