@@ -31,6 +31,22 @@
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
 <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://zs-barnes.github.io/blog/feed.xml" title="Zachary Barnes" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
 
 <script>
 function wrap_img(fn) {
@@ -98,22 +114,40 @@ window.onload = wrap_img;
 
    <!-- Assemble final sorted posts array -->
   
-  <ul class="post-list"><li><h3>
-    <a class="post-link" href="/blog/gaussian%20processes/2020/08/20/MTGP.html">
-    Multi-Task Gaussian Processes for Vital Sign Imputation
-    </a>
-</h3><p class="post-meta-description">How to model a multiple vital signs with multi-task gaussian processes</p><p class="post-meta">Aug 20, 2020</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/gaussian%20processes/2020/08/12/SingleTaskGP.html">
-    Modeling Vital signs with Gaussian Processes
-    </a>
-</h3><p class="post-meta-description">How to model a time series with a Gaussian process, plots included</p><p class="post-meta">Aug 12, 2020</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html">
-    Time Series Features in PySpark
-    </a>
-</h3><p class="post-meta-description">Finally, how to get the median and slope for window features in Pyspark</p><p class="post-meta">Aug 7, 2020</p>
-</li></ul>
+  <ul class="post-list"><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-4 d-table-cell p-3 v-align-middle">
+        <img class="image-preview " src="/blog/images/icons/mtgp.png" />
+      </div><div class="col-8 d-table-cell p-3">
+        <h3>
+          <a class="post-link" href="/blog/gaussian%20processes/2020/08/20/MTGP.html">
+            Multi-Task Gaussian Processes for Vital Sign Imputation
+          </a>
+        </h3>
+        <p class="post-meta-description">How to model a multiple vital signs with multi-task gaussian processes</p>
+          <p class="post-meta">Aug 20, 2020</p>
+      </div>
+  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-4 d-table-cell p-3 v-align-middle">
+        <img class="image-preview " src="/blog/images/icons/singleGP.png" />
+      </div><div class="col-8 d-table-cell p-3">
+        <h3>
+          <a class="post-link" href="/blog/gaussian%20processes/2020/08/12/SingleTaskGP.html">
+            Modeling Vital signs with Gaussian Processes
+          </a>
+        </h3>
+        <p class="post-meta-description">How to model a time series with a Gaussian process, plots included</p>
+          <p class="post-meta">Aug 12, 2020</p>
+      </div>
+  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-4 d-table-cell p-3 v-align-middle">
+        <img class="image-preview " src="/blog/images/icons/pyspark.jpeg" />
+      </div><div class="col-8 d-table-cell p-3">
+        <h3>
+          <a class="post-link" href="/blog/pyspark/time%20series/2020/08/07/Pyspark-Feature-Engineering.html">
+            Time Series Features in PySpark
+          </a>
+        </h3>
+        <p class="post-meta-description">Finally, how to get the median and slope for window features in Pyspark</p>
+          <p class="post-meta">Aug 7, 2020</p>
+      </div>
+  </div></li></ul>
 
     </div>
       </div>
@@ -137,7 +171,7 @@ window.onload = wrap_img;
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/zs-barnes" title="zs-barnes"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/yrahcaz17" title="yrahcaz17"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
 </div>
 
   </div>
