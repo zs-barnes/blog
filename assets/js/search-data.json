@@ -62,7 +62,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "I’m a data enthusiast and programmer. Things I like: Lisp, Vim, and Python. .",
+          "content": "I’m a data enthusiast and programmer. Things I like: Lisp, Vim, and Python. . I’m also confused about how to split up my digital presence. Here is my music website: https://zacharybarnes.org .",
           "url": "https://zs-barnes.github.io/blog/about/",
           "relUrl": "/about/",
           "date": ""
